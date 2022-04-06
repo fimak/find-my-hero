@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { AppContext } from '../AppContext';
+import { Preference } from '../types';
 
 export default function Questions() {
-  const [name, setName] = useState('');
-  const [preference, setPreference] = useState('');
+  const { name, setName, preference, setPreference } = useContext(AppContext);
 
   return (
     <main style={{ padding: '1rem 0', display: 'flex', justifyContent: 'center', minHeight: '100vh' }}>
@@ -26,7 +27,8 @@ export default function Questions() {
             name="preference"
             label="What do you like more: comics, series or stories?"
             value={preference}
-            onChange={(e) => setPreference(e.target.value)}
+            onChange={(e) => setPreference(e.target.value as Preference)}
+            disabled={name.length < 2}
           >
             <MenuItem value="comics">Comics</MenuItem>
             <MenuItem value="series">Series</MenuItem>

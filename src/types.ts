@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export type Preferences = 'comics' | 'series' | 'stories' | '';
+export type Preference = 'comics' | 'series' | 'stories' | '';
 
 export interface Hero {
   id: number;
@@ -9,12 +9,12 @@ export interface Hero {
 
 export interface AppState {
   name: string;
-  preferences: Preferences;
+  preference: Preference;
   heroList?: Hero[];
 }
 
 export interface ContextValue extends AppState {
   setName: Dispatch<SetStateAction<string>>;
-  setPreferences: Dispatch<SetStateAction<Preferences>>;
+  setPreference: Dispatch<SetStateAction<Preference>>;
   setHeroList: Dispatch<SetStateAction<Hero[] | undefined>>;
 }

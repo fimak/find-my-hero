@@ -3,19 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
+import AppContextProvider from './AppContext';
 import reportWebVitals from './reportWebVitals';
 import Questions from './routes/Questions';
 import Results from './routes/Results';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="questions" element={<Questions />} />
-        <Route path="results" element={<Results />} />
-      </Routes>
-    </BrowserRouter>
+    <AppContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="questions" element={<Questions />} />
+          <Route path="results" element={<Results />} />
+        </Routes>
+      </BrowserRouter>
+    </AppContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

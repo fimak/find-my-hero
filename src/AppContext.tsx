@@ -1,11 +1,11 @@
 import { createContext, FC, ReactNode, useMemo, useState } from 'react';
-import { ContextValue, Hero, Preferences } from './types';
+import { ContextValue, Hero, Preference } from './types';
 
 export const AppContext = createContext<ContextValue>({
   name: '',
   setName: () => {},
-  preferences: '',
-  setPreferences: () => {},
+  preference: '',
+  setPreference: () => {},
   heroList: undefined,
   setHeroList: () => {},
 });
@@ -16,12 +16,12 @@ interface Props {
 
 const AppContextProvider: FC<Props> = ({ children }) => {
   const [name, setName] = useState<string>('');
-  const [preferences, setPreferences] = useState<Preferences>('');
+  const [preference, setPreference] = useState<Preference>('');
   const [heroList, setHeroList] = useState<Hero[]>();
 
   const value = useMemo(
-    () => ({ name, setName, preferences, setPreferences, heroList, setHeroList }),
-    [name, preferences, heroList]
+    () => ({ name, setName, preference, setPreference, heroList, setHeroList }),
+    [name, preference, heroList]
   );
 
   return (
