@@ -2,15 +2,12 @@ import { Dispatch, SetStateAction } from 'react';
 
 export type Preference = 'comics' | 'series' | 'stories' | '';
 
-export interface Hero {
-  id: number;
-  name: string;
-}
+export interface Hero {}
 
 export interface AppState {
   name: string;
   preference: Preference;
-  heroList?: Hero[];
+  heroList?: any;
 }
 
 export interface ContextValue extends AppState {

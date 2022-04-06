@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { AppContext } from '../AppContext';
 import { Preference } from '../types';
 
@@ -35,6 +35,8 @@ export default function Questions() {
             <MenuItem value="stories">Stories</MenuItem>
           </Select>
         </FormControl>
+
+        <Button href="/results">Find my hero</Button>
       </Box>
     </main>
   );
